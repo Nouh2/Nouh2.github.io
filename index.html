@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noe Chevalier-Tehraoui · Health Data Scientist</title>
+<meta name="description" content="Noe Chevalier-Tehraoui, Health Data Scientist. MSc Health Data Science (Université Paris-Saclay). Looking for a 6-month internship from February 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F8F6F0; --grid:rgba(39,71,160,.045); --ink:#1B2B4B; --body:#2E3A52; --muted:#4A5468;
+  --pen:#2747A0; --hl:#FBE58A; --sheet:#FFFFFF; --sheet2:#FBFAF6; --rule:#DCD6C8; --tape:rgba(226,210,160,.75);
+  --shadow:rgba(27,43,75,.08);
+  --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --hand:'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121827; --grid:rgba(157,180,240,.06); --ink:#ECE7DA; --body:#D3CEC2; --muted:#AAA597;
+    --pen:#9DB4F0; --hl:rgba(214,180,40,.45); --sheet:#1A2133; --sheet2:#161D2E; --rule:#2E3850; --tape:rgba(200,180,120,.35);
+    --shadow:rgba(0,0,0,.35); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121827; --grid:rgba(157,180,240,.06); --ink:#ECE7DA; --body:#D3CEC2; --muted:#AAA597;
+  --pen:#9DB4F0; --hl:rgba(214,180,40,.45); --sheet:#1A2133; --sheet2:#161D2E; --rule:#2E3850; --tape:rgba(200,180,120,.35);
+  --shadow:rgba(0,0,0,.35); color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth; scroll-padding-top: env(safe-area-inset-top, 0px)}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  margin:0; font-family:var(--sans); color:var(--ink); background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img,svg{max-width:100%}
+a{color:var(--ink)} a:hover{color:var(--pen)}
+:focus-visible{outline:2.5px solid var(--pen); outline-offset:3px; border-radius:4px}
+
+/* language switching */
+html[data-lang="fr"] [data-l="en"], html:not([data-lang="fr"]) [data-l="fr"]{display:none !important}
+
+/* shared */
+.wrap{position:relative; z-index:1; max-width:1200px; margin:0 auto; padding-inline:clamp(20px,4vw,56px)}
+.pen{color:var(--pen)} .inkc{color:var(--ink)}
+.f-paper{fill:var(--paper)} .halo{stroke:var(--paper)}
+.hand{font-family:var(--hand); color:var(--pen)}
+.hl{background:linear-gradient(transparent 55%, var(--hl) 55%); padding:0 3px; -webkit-box-decoration-break:clone; box-decoration-break:clone}
+.decor{position:absolute; pointer-events:none; color:var(--pen); z-index:0}
+.section{position:relative; padding-block:88px}
+.section-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px; margin-bottom:40px}
+.section-head h2{margin:0; font-family:var(--serif); font-weight:600; font-size:clamp(32px,4vw,40px); letter-spacing:-.01em}
+.section-head .hand{margin:0; font-size:24px}
+.skip{position:absolute; left:16px; top:-60px; background:var(--ink); color:var(--paper); padding:10px 16px; border-radius:8px; z-index:10; text-decoration:none}
+.skip:focus{top:16px}
+
+/* header */
+.site-header{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding-block:28px}
+.logo{font-family:var(--serif); font-size:24px; font-weight:600; text-decoration:none}
+.logo span{color:var(--pen)}
+.site-nav{display:flex; flex-wrap:wrap; align-items:center; gap:8px 28px; font-size:15px}
+.site-nav a{text-decoration:none; display:inline-flex; align-items:center; min-height:44px}
+.site-nav a:hover{text-decoration:underline; text-underline-offset:5px}
+.lang{display:flex; border:1.5px solid var(--ink); border-radius:999px; overflow:hidden}
+.lang button{min-height:44px; min-width:48px; padding:0 14px; border:0; background:transparent; color:var(--ink); font:600 13px/1 var(--sans); cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
+
+/* hero */
+.hero{display:flex; flex-wrap:wrap; gap:48px; align-items:center; padding-top:24px}
+.hero-text{flex:1.3 1 520px; min-width:0; display:flex; flex-direction:column; gap:22px}
+.entry{margin:0; font-family:var(--mono); font-size:13px; color:var(--muted)}
+.note{align-self:flex-start; transform:rotate(-1.5deg)}
+.note p{margin:0; font-family:var(--hand); font-size:clamp(25px,3vw,30px); font-weight:700; line-height:1.1; color:var(--pen)}
+.note svg{width:100%; height:12px; display:block}
+.hero h1{margin:0; font-family:var(--serif); font-weight:600; font-size:clamp(40px,4.8vw,66px); line-height:1.02; letter-spacing:-.02em}
+.title-row{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px}
+.title-row .role{margin:0; font-family:var(--serif); font-size:clamp(26px,3vw,36px); line-height:1.1}
+.title-row .hand{margin:0; font-size:24px; transform:rotate(-2deg)}
+.lede{margin:0; font-size:18px; line-height:1.6; max-width:540px; color:var(--body)}
+.where{margin:0; font-size:14px; color:var(--muted)}
+.actions{display:flex; flex-wrap:wrap; gap:12px; padding-top:6px}
+.btn{display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 22px; border:1.5px solid var(--ink); border-radius:10px; font-weight:600; font-size:15px; text-decoration:none; background:var(--sheet); color:var(--ink)}
+.btn:hover{color:var(--ink); background:var(--sheet2)}
+.btn-primary{background:var(--ink); color:var(--paper)}
+.btn-primary:hover{background:var(--pen); border-color:var(--pen); color:var(--paper)}
+.hero-art{flex:1 1 440px; min-width:0; display:flex; flex-direction:column; gap:18px}
+.sheet{position:relative; background:var(--sheet); border:1px solid var(--rule); border-radius:4px; box-shadow:0 12px 32px var(--shadow)}
+.tape{position:absolute; width:110px; height:28px; background:var(--tape)}
+.hero-figure{margin:0; padding:28px 24px 18px; transform:rotate(1deg)}
+.hero-figure .tape{top:-14px; left:50%; margin-left:-55px; transform:rotate(-3deg)}
+.cell{background:var(--sheet); border:1px solid var(--rule); border-radius:6px; font-family:var(--mono); font-size:13.5px; line-height:1.7; overflow-x:auto}
+.cell > div{display:flex; gap:14px; padding:12px 16px}
+.cell > div + div{border-top:1px dashed var(--rule); background:var(--sheet2)}
+.cell .prompt{color:var(--muted); flex:none}
+.cell pre{margin:0; font:inherit; white-space:pre}
+
+/* hero draw animation: one orchestrated moment */
+.draw{stroke-dasharray:1; stroke-dashoffset:0}
+.fade{opacity:1}
+@media (prefers-reduced-motion: no-preference){
+  .draw{stroke-dashoffset:1; animation:draw 2.4s cubic-bezier(.6,.1,.3,1) .3s forwards}
+  .draw.late{animation-delay:1.6s; animation-duration:1.6s}
+  .fade{opacity:0; animation:fade .8s ease 2.6s forwards}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+
+/* at a glance */
+.glance{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:40px 48px}
+.glance-item{display:flex; flex-direction:column; gap:10px}
+.glance-item svg{width:104px; height:78px; display:block}
+.glance-item h3{margin:0; display:flex; align-items:baseline; gap:10px; font-family:var(--serif); font-size:23px; font-weight:600; line-height:1.2}
+.glance-item h3 .n{font-family:var(--hand); font-size:30px; font-weight:700; color:var(--pen)}
+.glance-item p{margin:0; font-size:15.5px; line-height:1.6; color:var(--body)}
+.more{margin:56px 0 0; text-align:center; font-family:var(--hand); font-size:26px; color:var(--pen)}
+.more a{color:inherit; text-decoration:none}
+
+/* projects */
+.project{margin-bottom:56px}
+.project .tape.l{top:-14px; left:48px; transform:rotate(-4deg)}
+.project .tape.r{top:-12px; right:48px; transform:rotate(3deg)}
+.project-body{display:flex; flex-wrap:wrap; gap:40px 48px; padding:clamp(26px,4vw,48px)}
+.project-text{flex:1 1 520px; min-width:0; display:flex; flex-direction:column; gap:20px}
+.project-meta{margin:0; font-family:var(--mono); font-size:13px; line-height:1.6; color:var(--muted)}
+.project h3{margin:0; font-family:var(--serif); font-size:clamp(26px,3.2vw,38px); font-weight:600; line-height:1.12; letter-spacing:-.01em}
+.project.small h3{font-size:clamp(24px,2.6vw,28px)}
+.qa{margin:0; display:grid; grid-template-columns:minmax(120px,max-content) minmax(0,1fr); gap:14px 24px; font-size:16px; line-height:1.55}
+.qa dt{font-family:var(--hand); font-size:23px; color:var(--pen); line-height:1.2}
+.qa dd{margin:0; color:var(--body)}
+.keywords{margin:0; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px}
+.keywords .hand{font-size:23px}
+.keywords .k{font-family:var(--mono); font-size:14px; color:var(--ink)}
+.project-art{flex:1 1 360px; min-width:0; margin:0; display:flex; flex-direction:column; gap:8px}
+.project-art figcaption{font-family:var(--hand); font-size:20px; color:var(--muted); text-align:right}
+.project.small .project-body{flex-direction:column; gap:18px}
+.project.small .sketch{position:absolute; top:22px; right:22px; width:86px; height:64px}
+.project.small .project-text{flex:none; padding-right:84px}
+.project.small .qa{grid-template-columns:1fr; gap:2px 0}
+.project.small .qa dd{margin-bottom:12px}
+.projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr)); gap:56px 40px}
+.projects-grid .project{margin:0}
+details{border-top:1px dashed var(--rule)}
+summary{list-style:none; display:inline-flex; align-items:center; min-height:44px; margin:16px clamp(26px,4vw,48px); padding:0 18px; background:var(--paper); border:1.5px solid var(--ink); border-radius:10px; font-family:var(--mono); font-size:14px; font-weight:500; color:var(--ink); cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary .close{display:none}
+details[open] summary .open{display:none}
+details[open] summary .close{display:inline}
+.details{border-top:1px solid var(--rule); background:var(--sheet2); padding:28px clamp(26px,4vw,48px) 36px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px 28px; font-size:15px; line-height:1.6}
+.details h4{margin:0 0 8px; font-family:var(--hand); font-size:22px; font-weight:700; color:var(--pen)}
+.details p{margin:0; color:var(--body)}
+.details .stack{font-family:var(--mono); font-size:14px; color:var(--ink); margin-bottom:6px}
+
+/* skills */
+.venn{margin:0 auto 48px; width:100%; max-width:620px}
+.venn svg{width:100%; height:auto; display:block}
+.squiggle{width:100%; height:12px; display:block; margin-bottom:44px}
+.skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:40px 56px}
+.skill-groups h3{margin:0 0 10px; font-family:var(--serif); font-size:22px; font-weight:600}
+.skill-groups ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:6px; font-size:15.5px; line-height:1.5; color:var(--body)}
+.skill-groups .mono{margin:0; font-family:var(--mono); font-size:14.5px; line-height:1.8; color:var(--ink)}
+.extras{display:flex; flex-wrap:wrap; gap:32px 72px; margin-top:52px}
+.extras > div{flex:1 1 320px; min-width:0}
+.extras .hand{margin:0 0 6px; font-size:24px}
+.extras p:not(.hand){margin:0; font-size:15.5px; line-height:1.6; color:var(--body)}
+
+/* path */
+.legend{margin:0 0 0 auto; display:flex; align-items:center; gap:18px; font-size:14px; color:var(--muted)}
+.legend span{display:inline-flex; align-items:center; gap:8px}
+.timeline{--datecol:150px; position:relative}
+.timeline .line{position:absolute; top:14px; bottom:30px; left:calc(var(--datecol) + 20px + 9px); width:10px; height:calc(100% - 44px); color:var(--pen)}
+.timeline ol{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:40px}
+.timeline li{display:grid; grid-template-columns:var(--datecol) 28px minmax(0,1fr); column-gap:20px; align-items:start}
+.timeline .date{margin:0; padding-top:4px; font-family:var(--mono); font-size:13.5px; line-height:1.4; color:var(--muted)}
+.timeline .next-date{margin:0; font-family:var(--hand); font-size:26px; font-weight:700; line-height:1.1; color:var(--pen)}
+.timeline .next-date span{font-size:22px; font-weight:500}
+.timeline .dot{width:28px; height:28px; display:block; position:relative; z-index:1; color:var(--pen)}
+.timeline .what{display:flex; flex-direction:column; gap:6px}
+.timeline h3{margin:0; font-family:var(--serif); font-size:22px; font-weight:600; line-height:1.25}
+.timeline .org{margin:0; font-size:15px; font-weight:500}
+.timeline .desc{margin:0; font-size:15px; line-height:1.6; color:var(--body); max-width:640px}
+.timeline .invite{margin:0; font-family:var(--hand); font-size:25px; color:var(--pen); line-height:1.2}
+
+/* contact */
+.contact{display:flex; flex-wrap:wrap; align-items:center; gap:48px}
+.contact-text{flex:1 1 520px; min-width:0; display:flex; flex-direction:column; gap:24px}
+.contact h2{margin:0; font-family:var(--serif); font-weight:600; font-size:clamp(44px,6vw,72px); line-height:1.02; letter-spacing:-.02em}
+.contact .lede{max-width:560px}
+.mail{align-self:flex-start; font-family:var(--serif); font-size:clamp(22px,3vw,34px); font-weight:600; text-decoration-thickness:1.5px; text-underline-offset:6px; overflow-wrap:anywhere}
+.links{margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:8px 36px; font-size:16px; font-weight:500}
+.links a{display:inline-flex; align-items:center; gap:8px; min-height:44px; text-underline-offset:4px}
+.links .hand{font-size:22px}
+.contact-art{flex:1 1 340px; min-width:0; margin:0; display:flex; justify-content:center}
+.contact-art svg{width:100%; max-width:420px; height:auto; display:block}
+.site-footer{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; margin-top:72px; padding-block:20px 40px; border-top:1px dashed var(--rule); font-size:14px; color:var(--muted)}
+.site-footer p{margin:0}
+.site-footer a{font-family:var(--hand); font-size:22px; color:var(--pen); text-decoration:none; display:inline-flex; align-items:center; min-height:44px}
+
+@media (max-width: 640px){
+  .section{padding-block:64px}
+  .qa{grid-template-columns:1fr; gap:2px 0}
+  .qa dd{margin-bottom:12px}
+  .timeline{--datecol:92px}
+  .timeline li{column-gap:12px}
+  .timeline .line{left:calc(var(--datecol) + 12px + 9px)}
+  .project.small .project-text{padding-right:0}
+  .project.small .sketch{display:none}
+  .legend{margin-left:0}
+  .decor{opacity:.22 !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="fr">Aller au contenu</span></a>
+
+<!-- shared ink definitions -->
+<svg aria-hidden="true" width="0" height="0" style="position:absolute; color:var(--pen)">
+  <defs>
+    <pattern id="h1" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/></pattern>
+    <pattern id="h2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" stroke-width=".9"/></pattern>
+    <pattern id="h3" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/></pattern>
+    <pattern id="h4" width="6" height="6" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/></pattern>
+    <filter id="ink"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  </defs>
+</svg>
+
+<div style="position:relative; overflow:hidden">
+
+<!-- ================= HOME ================= -->
+<div id="top" style="position:relative">
+  <svg class="decor" aria-hidden="true" viewBox="0 0 360 300" style="top:-70px; left:-120px; width:380px; opacity:.7">
+    <g filter="url(#ink)" stroke="currentColor" stroke-width="1.6">
+      <circle cx="90" cy="80" r="52" fill="url(#h1)"/><circle class="f-paper" cx="98" cy="74" r="13"/>
+      <circle cx="170" cy="48" r="34" fill="url(#h2)"/><circle class="f-paper" cx="176" cy="44" r="8"/>
+      <circle cx="58" cy="172" r="40" fill="url(#h2)"/><circle class="f-paper" cx="64" cy="166" r="10"/>
+      <circle cx="152" cy="140" r="46" fill="url(#h1)"/><circle class="f-paper" cx="160" cy="134" r="11"/>
+      <circle cx="232" cy="110" r="25" fill="url(#h1)"/><circle class="f-paper" cx="236" cy="106" r="6"/>
+      <circle cx="122" cy="232" r="30" fill="url(#h1)"/><circle class="f-paper" cx="127" cy="227" r="7"/>
+      <circle cx="212" cy="198" r="20" fill="url(#h2)"/>
+      <circle cx="268" cy="168" r="11" fill="none"/><circle cx="290" cy="128" r="6" fill="none"/><circle cx="250" cy="246" r="8" fill="none"/>
+    </g>
+  </svg>
+  <svg class="decor" aria-hidden="true" viewBox="0 0 300 300" style="top:640px; right:-110px; width:300px; opacity:.6">
+    <g filter="url(#ink)" stroke="currentColor" stroke-width="1.6">
+      <circle cx="150" cy="110" r="58" fill="url(#h2)"/><circle class="f-paper" cx="140" cy="104" r="14"/>
+      <circle cx="88" cy="190" r="34" fill="url(#h1)"/><circle class="f-paper" cx="84" cy="186" r="8"/>
+      <circle cx="190" cy="206" r="42" fill="url(#h1)"/><circle class="f-paper" cx="182" cy="200" r="10"/>
+      <circle cx="70" cy="96" r="14" fill="none"/><circle cx="110" cy="260" r="9" fill="none"/>
+    </g>
+  </svg>
+
+  <header class="wrap site-header">
+    <a class="logo" href="#top">Noe C‑T<span>.</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#work"><span data-l="en">Work</span><span data-l="fr">Projets</span></a>
+      <a href="#skills"><span data-l="en">Skills</span><span data-l="fr">Compétences</span></a>
+      <a href="#path"><span data-l="en">Path</span><span data-l="fr">Parcours</span></a>
+      <a href="#contact">Contact</a>
+      <div class="lang" role="group" aria-label="Language / Langue">
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-set-lang="fr" aria-pressed="false">FR</button>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<main id="main">
+  <section class="wrap hero" aria-label="Introduction">
+    <div class="hero-text">
+      <p class="entry"><span data-l="en">// lab notebook, entry no. 001</span><span data-l="fr">// carnet de labo, entrée n° 001</span></p>
+      <div class="note">
+        <p><span data-l="en">Looking for a 6‑month internship, from February 2027</span><span data-l="fr">Je cherche un stage de 6 mois, à partir de février 2027</span></p>
+        <svg aria-hidden="true" viewBox="0 0 420 14" preserveAspectRatio="none"><path class="pen" filter="url(#ink)" d="M2 8 C 60 2, 110 12, 170 7 S 290 3, 340 8 S 400 10, 418 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </div>
+      <h1>Noe<br>Chevalier-<wbr>Tehraoui</h1>
+      <div class="title-row">
+        <p class="role"><span class="hl">Health Data Scientist</span></p>
+        <p class="hand"><span data-l="en">← MSc, Université Paris‑Saclay</span><span data-l="fr">← Master 2, Université Paris‑Saclay</span></p>
+      </div>
+      <p class="lede" data-l="en">I turn real‑world health data into clear evidence, and build the tools that put it to work: biostatistics, machine learning and full‑stack products, from cohort analysis to deployed AI.</p>
+      <p class="lede" data-l="fr">Je transforme des données de santé en vie réelle en résultats clairs, et je construis les outils qui les rendent utiles : biostatistiques, machine learning et produits full‑stack, de l’analyse de cohorte à l’IA déployée.</p>
+      <p class="where"><span data-l="en">Paris, France. Open to Switzerland and Luxembourg.</span><span data-l="fr">Paris, France. Mobile en Suisse et au Luxembourg.</span></p>
+      <div class="actions">
+        <a class="btn btn-primary" data-l="en" href="cv-noe-chevalier-tehraoui-en.pdf" download>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download CV (PDF)
+        </a>
+        <a class="btn btn-primary" data-l="fr" href="cv-noe-chevalier-tehraoui-fr.pdf" download>
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+          Télécharger le CV (PDF)
+        </a>
+        <a class="btn" href="https://linkedin.com/in/noe-chevalier-tehraoui" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="#contact"><span data-l="en">Get in touch</span><span data-l="fr">Me contacter</span></a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <figure class="sheet hero-figure">
+        <span class="tape" aria-hidden="true"></span>
+        <svg role="img" aria-label="Hand-drawn DNA helix whose strands turn into a survival curve and data points" viewBox="0 0 540 330" style="width:100%; height:auto; display:block">
+          <g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path class="draw inkc" pathLength="1" stroke="currentColor" d="M20 170 L24 157.1 L28 144.8 L32 133.6 L36 123.9 L40 116.3 L44 111 L48 108.3 L52 108.3 L56 111 L60 116.3 L64 123.9 L68 133.6 L72 144.8 L76 157.1 L80 170 L84 182.9 L88 195.2 L92 206.4 L96 216.1 L100 223.7 L104 229 L108 231.7 L112 231.7 L116 229 L120 223.7 L124 216.1 L128 206.4 L132 195.2 L136 182.9 L140 170 L144 157.1 L148 144.8 L152 133.6 L156 123.9 L160 116.3 L164 111 L168 108.3 L172 108.3 L176 111 L180 116.3 L184 123.9 L188 133.6 L192 144.8 L196 157.1 L200 170 L204 182.9 L208 195.2 L212 206.4 L216 216.1 L220 223.7 L224 229 L228 231.7 L232 231.7 L236 229 L240 223.7 L244 216.1 L248 206.4 L252 195.2 L256 182.9 L260 170 L264 157.1 L268 144.8 L272 133.6 L276 123.9 L280 116.3 L284 111 L292 108 H330 V128 H362 V150 H392 V172 H422 V198 H452 V222 H482 V244 H512"/>
+            <path class="draw pen" pathLength="1" stroke="currentColor" d="M20 170 L24 182.9 L28 195.2 L32 206.4 L36 216.1 L40 223.7 L44 229 L48 231.7 L52 231.7 L56 229 L60 223.7 L64 216.1 L68 206.4 L72 195.2 L76 182.9 L80 170 L84 157.1 L88 144.8 L92 133.6 L96 123.9 L100 116.3 L104 111 L108 108.3 L112 108.3 L116 111 L120 116.3 L124 123.9 L128 133.6 L132 144.8 L136 157.1 L140 170 L144 182.9 L148 195.2 L152 206.4 L156 216.1 L160 223.7 L164 229 L168 231.7 L172 231.7 L176 229 L180 223.7 L184 216.1 L188 206.4 L192 195.2 L196 182.9 L200 170 L204 157.1 L208 144.8 L212 133.6 L216 123.9 L220 116.3 L224 111 L228 108.3 L232 108.3 L236 111 L240 116.3 L244 123.9 L248 133.6 L252 144.8 L256 157.1 L260 170 L264 182.9 L268 195.2 L272 206.4"/>
+          </g>
+          <g class="inkc fade" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".55">
+            <line x1="35" y1="126.2" x2="35" y2="213.8"/><line x1="50" y1="108" x2="50" y2="232"/><line x1="65" y1="126.2" x2="65" y2="213.8"/>
+            <line x1="95" y1="126.2" x2="95" y2="213.8"/><line x1="110" y1="108" x2="110" y2="232"/><line x1="125" y1="126.2" x2="125" y2="213.8"/>
+            <line x1="155" y1="126.2" x2="155" y2="213.8"/><line x1="170" y1="108" x2="170" y2="232"/><line x1="185" y1="126.2" x2="185" y2="213.8"/>
+            <line x1="215" y1="126.2" x2="215" y2="213.8"/><line x1="230" y1="108" x2="230" y2="232"/><line x1="245" y1="126.2" x2="245" y2="213.8"/>
+          </g>
+          <g class="inkc fade" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <line x1="296" y1="88" x2="296" y2="272"/><line x1="296" y1="272" x2="520" y2="272"/>
+            <line x1="346" y1="122" x2="346" y2="134"/><line x1="407" y1="166" x2="407" y2="178"/><line x1="467" y1="216" x2="467" y2="228"/>
+          </g>
+          <g class="pen fade" fill="currentColor" opacity=".7">
+            <circle cx="284" cy="218" r="3"/><circle cx="304" cy="236" r="3"/><circle cx="322" cy="212" r="3"/><circle cx="338" cy="246" r="3"/>
+            <circle cx="356" cy="226" r="3"/><circle cx="374" cy="254" r="3"/><circle cx="398" cy="238" r="3"/><circle cx="418" cy="258" r="3"/>
+            <circle cx="440" cy="244" r="3"/><circle cx="462" cy="260" r="3"/><circle cx="494" cy="256" r="3"/>
+          </g>
+          <g class="pen fade" fill="currentColor" font-family="Caveat, cursive" font-size="24">
+            <text x="58" y="290" data-l="en">raw health data</text><text x="58" y="290" data-l="fr">données brutes</text>
+            <text x="350" y="304" data-l="en">clear evidence</text><text x="350" y="304" data-l="fr">résultats clairs</text>
+          </g>
+          <g class="pen fade" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M200 292 C 250 316, 300 316, 338 300"/><path d="M330 294 L339 300 L329 305"/>
+          </g>
+        </svg>
+      </figure>
+      <div class="cell" aria-label="Notebook cell">
+        <div><span class="prompt">In [1]:</span><span><span class="pen">noe</span>.status()</span></div>
+        <div><span class="prompt">Out[1]:</span><pre>{ role: "Health Data Scientist",
+  available: "Feb 2027",
+  duration: "6 months" }</pre></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="glance-title" style="padding-top:104px">
+    <div class="section-head">
+      <h2 id="glance-title"><span data-l="en">At a glance</span><span data-l="fr">En un coup d’œil</span></h2>
+      <p class="hand"><span data-l="en">the whole story in 10 seconds</span><span data-l="fr">toute l’histoire en 10 secondes</span></p>
+    </div>
+    <div class="glance">
+      <div class="glance-item">
+        <svg aria-hidden="true" class="pen" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 L48 14 L86 30 L48 46 Z" fill="url(#h1)"/><path d="M26 37 V52 C 38 60 58 60 70 52 V37"/><path d="M86 30 V50"/><circle cx="86" cy="53" r="3"/></g></svg>
+        <h3><span class="n">1.</span><span data-l="en">MSc Health Data Science</span><span data-l="fr">Master Science des données de santé</span></h3>
+        <p data-l="en">Université Paris‑Saclay, 2026–27. Survival analysis, causal inference, machine learning, statistical genetics.</p>
+        <p data-l="fr">Université Paris‑Saclay, 2026–27. Analyse de survie, inférence causale, machine learning, génétique statistique.</p>
+      </div>
+      <div class="glance-item">
+        <svg aria-hidden="true" class="pen" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8 V62 H90"/><path d="M12 14 H30 V25 H46 V37 H62 V45 H86" stroke-width="2.2"/><path d="M38 21 V29 M70 41 V49"/></g></svg>
+        <h3><span class="n">2.</span><span data-l="en">A 1,620‑patient cohort</span><span data-l="fr">Une cohorte de 1 620 patients</span></h3>
+        <p data-l="en">Biostatistics internship at Inserm (CRESS): survival models and GLMs on neurology patients’ real‑world data.</p>
+        <p data-l="fr">Stage de biostatistique à l’Inserm (CRESS) : modèles de survie et GLM sur les données de vie réelle de patients en neurologie.</p>
+      </div>
+      <div class="glance-item">
+        <svg aria-hidden="true" class="pen" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="38" y="26" width="20" height="18" fill="url(#h1)"/><path d="M38 35 H30 M58 35 H66"/><rect x="8" y="29" width="22" height="12"/><path d="M15 29 V41 M22 29 V41"/><rect x="66" y="29" width="22" height="12"/><path d="M73 29 V41 M80 29 V41"/><path d="M48 44 V51"/><path d="M41 58 C 45 54 51 54 55 58 M36 65 C 42 59 54 59 60 65"/></g></svg>
+        <h3><span class="n">3.</span><span data-l="en">Data engineering at Forvis Mazars</span><span data-l="fr">Data engineering chez Forvis Mazars</span></h3>
+        <p data-l="en">Python data pipelines: normalising an insurer’s client addresses with government open‑data APIs, and processing Sentinel‑2 satellite imagery to track farmland regeneration.</p>
+        <p data-l="fr">Pipelines de données en Python : normalisation des adresses clients d’un assureur via des API open data du gouvernement, et images satellites Sentinel‑2 pour suivre la régénération de parcelles agricoles.</p>
+      </div>
+      <div class="glance-item">
+        <svg aria-hidden="true" class="pen" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 38 L70 15 M22 38 L74 56 M22 38 L48 40 M48 40 L70 15 M48 40 L74 56"/><circle cx="22" cy="38" r="8" fill="url(#h1)"/><circle cx="70" cy="15" r="7" fill="url(#h1)"/><circle cx="74" cy="56" r="7" fill="url(#h1)"/><circle class="f-paper" cx="48" cy="40" r="5"/></g></svg>
+        <h3><span class="n">4.</span><span data-l="en">AI products, end to end</span><span data-l="fr">Des produits IA de A à Z</span></h3>
+        <p data-l="en">A multi‑agent RAG assistant deployed on Azure, and SlideAI, my own AI SaaS: 170 sign‑ups and first sales in its first month.</p>
+        <p data-l="fr">Un assistant RAG multi‑agents déployé sur Azure, et SlideAI, mon propre SaaS d’IA : 170 inscrits et premières ventes dès le premier mois.</p>
+      </div>
+    </div>
+    <p class="more"><a href="#work"><span data-l="en">selected work ↓</span><span data-l="fr">mes projets ↓</span></a></p>
+  </section>
+
+<!-- ================= WORK ================= -->
+<section id="work" class="section" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="work-title"><span data-l="en">Selected work</span><span data-l="fr">Projets</span></h2>
+      <p class="hand"><span data-l="en">one line for everyone, details for the curious</span><span data-l="fr">une phrase pour tout le monde, les détails pour les curieux</span></p>
+    </div>
+
+    <!-- 01 Inserm -->
+    <article class="sheet project" aria-labelledby="p1">
+      <span class="tape l" aria-hidden="true"></span><span class="tape r" aria-hidden="true"></span>
+      <div class="project-body">
+        <div class="project-text">
+          <p class="project-meta"><span data-l="en">Experiment 01, Mar–Aug 2026<br>Inserm CRESS (UMR 1153), Hôtel‑Dieu Hospital, Paris</span><span data-l="fr">Expérience 01, mars–août 2026<br>Inserm CRESS (UMR 1153), Hôpital Hôtel‑Dieu, Paris</span></p>
+          <h3 id="p1"><span data-l="en">Who keeps up with their prescribed exercise?</span><span data-l="fr">Qui continue ses exercices prescrits ?</span></h3>
+          <dl class="qa" data-l="en">
+            <dt>the question</dt><dd>Patients with stroke, Parkinson’s or multiple sclerosis are prescribed home exercise. How many stick with it, and what makes the difference?</dd>
+            <dt>what I did</dt><dd>Built the whole analysis pipeline in R, end to end and largely on my own: from the raw real‑world data of <span class="hl">1,620 patients</span> to every model and figure.</dd>
+            <dt>what it delivered</dt><dd>All the study’s figures, and the methods and results sections I drafted for a manuscript now being prepared for peer‑reviewed publication.</dd>
+          </dl>
+          <dl class="qa" data-l="fr">
+            <dt>la question</dt><dd>Après un AVC, avec la maladie de Parkinson ou une sclérose en plaques, on prescrit aux patients des exercices à domicile. Combien s’y tiennent, et qu’est‑ce qui fait la différence ?</dd>
+            <dt>ce que j’ai fait</dt><dd>Construit, en grande partie seul, tout le pipeline d’analyse en R : des données brutes de vie réelle de <span class="hl">1 620 patients</span> jusqu’à chaque modèle et chaque figure.</dd>
+            <dt>ce que ça a donné</dt><dd>Toutes les figures de l’étude, et les parties méthodes et résultats que j’ai rédigées pour un article en préparation, destiné à une revue à comité de lecture.</dd>
+          </dl>
+          <p class="keywords"><span class="hand"><span data-l="en">keywords</span><span data-l="fr">mots‑clés</span></span><span class="k"><span data-l="en">survival analysis / regression models / real‑world data / R</span><span data-l="fr">analyse de survie / modèles de régression / données de vie réelle / R</span></span></p>
+        </div>
+        <figure class="project-art">
+          <svg role="img" aria-label="Hand-drawn illustrative survival curve showing adherence declining over time" viewBox="0 0 420 300" style="width:100%; height:auto; display:block">
+            <g class="inkc" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"><line x1="48" y1="24" x2="48" y2="246"/><line x1="48" y1="246" x2="404" y2="246"/></g>
+            <path class="pen" d="M48 40 H104 V62 H150 V84 H190 V112 H236 V136 H280 V158 H330 V170 H396" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="inkc" d="M48 40 H96 V74 H138 V108 H176 V146 H222 V176 H268 V198 H322 V212 H396" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round" stroke-linejoin="round"/>
+            <g class="pen" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="126" y1="56" x2="126" y2="68"/><line x1="212" y1="106" x2="212" y2="118"/><line x1="304" y1="152" x2="304" y2="164"/></g>
+            <g class="pen" fill="currentColor" font-family="Caveat, cursive" font-size="22">
+              <text x="58" y="276" data-l="en">time in the program →</text><text x="58" y="276" data-l="fr">temps dans le programme →</text>
+              <text x="20" y="214" transform="rotate(-90 20 214)" data-l="en">still adherent</text><text x="20" y="214" transform="rotate(-90 20 214)" data-l="fr">toujours observant</text>
+            </g>
+          </svg>
+          <figcaption><span data-l="en">illustrative sketch, not study data</span><span data-l="fr">croquis illustratif, pas les données de l’étude</span></figcaption>
+        </figure>
+      </div>
+      <details>
+        <summary><span class="open"><span data-l="en">+ Show technical details</span><span data-l="fr">+ Voir les détails techniques</span></span><span class="close"><span data-l="en">− Hide technical details</span><span data-l="fr">− Masquer les détails techniques</span></span></summary>
+        <div class="details">
+          <div><h4><span data-l="en">methods</span><span data-l="fr">méthodes</span></h4>
+            <p data-l="en">Kaplan–Meier estimates and Cox proportional‑hazards models of adherence over time. Multivariable Gamma GLMs (log link) on three adherence definitions, including a two‑part model at an 80% compliance threshold.</p>
+            <p data-l="fr">Estimateurs de Kaplan–Meier et modèles de Cox de l’observance dans le temps. GLM multivariés (Gamma, lien log) sur trois définitions de l’observance, dont un modèle en deux parties avec un seuil de compliance à 80 %.</p></div>
+          <div><h4><span data-l="en">data</span><span data-l="fr">données</span></h4>
+            <p data-l="en">Real‑world cohort of 1,620 neurology patients (stroke, Parkinson’s, MS, neuromuscular diseases). Patient classification from ICD‑11 codes and free text; PROMs analysed with non‑parametric tests.</p>
+            <p data-l="fr">Cohorte de vie réelle de 1 620 patients en neurologie (AVC, Parkinson, SEP, maladies neuromusculaires). Classification des patients à partir des codes CIM‑11 et de texte libre ; PROMs analysés par tests non paramétriques.</p></div>
+          <div><h4><span data-l="en">tools</span><span data-l="fr">outils</span></h4>
+            <p class="stack">R / ggplot2 / openxlsx</p>
+            <p data-l="en">Analyses and reporting automated end to end in R.</p>
+            <p data-l="fr">Analyses et reporting automatisés de bout en bout sous R.</p></div>
+        </div>
+      </details>
+    </article>
+
+    <div class="projects-grid">
+      <!-- 02 Forvis Mazars -->
+      <article class="sheet project small" aria-labelledby="p2">
+        <span class="tape l" aria-hidden="true"></span>
+        <svg class="sketch pen" aria-hidden="true" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="38" y="26" width="20" height="18" fill="url(#h1)"/><path d="M38 35 H30 M58 35 H66"/><rect x="8" y="29" width="22" height="12"/><path d="M15 29 V41 M22 29 V41"/><rect x="66" y="29" width="22" height="12"/><path d="M73 29 V41 M80 29 V41"/><path d="M48 44 V51"/><path d="M41 58 C 45 54 51 54 55 58 M36 65 C 42 59 54 59 60 65"/></g></svg>
+        <div class="project-body">
+          <div class="project-text">
+            <p class="project-meta"><span data-l="en">Experiment 02, Jun–Sep 2024<br>Forvis Mazars, Paris</span><span data-l="fr">Expérience 02, juin–sept. 2024<br>Forvis Mazars, Paris</span></p>
+            <h3 id="p2"><span data-l="en">Clean data, from client files to satellite images</span><span data-l="fr">Des données propres, des fichiers clients aux images satellites</span></h3>
+          </div>
+          <dl class="qa" data-l="en">
+            <dt>the question</dt><dd>An insurer needed its client addresses standardised, and another project had to follow farmland regeneration over time.</dd>
+            <dt>what I did</dt><dd>Built a Python solution that normalises addresses against government open data, and processed Copernicus Sentinel‑2 satellite imagery.</dd>
+            <dt>what it delivered</dt><dd>Standardised client addresses for the insurer, and interactive maps to follow the parcels.</dd>
+          </dl>
+          <dl class="qa" data-l="fr">
+            <dt>la question</dt><dd>Un assureur avait besoin d’adresses clients normalisées, et un autre projet devait suivre la régénération de parcelles agricoles dans le temps.</dd>
+            <dt>ce que j’ai fait</dt><dd>Développé une solution Python qui normalise les adresses à partir de l’open data du gouvernement, et traité des images satellites Copernicus Sentinel‑2.</dd>
+            <dt>ce que ça a donné</dt><dd>Des adresses clients normalisées pour l’assureur, et des cartes interactives pour suivre les parcelles.</dd>
+          </dl>
+          <p class="keywords"><span class="hand"><span data-l="en">keywords</span><span data-l="fr">mots‑clés</span></span><span class="k"><span data-l="en">data engineering / Python / open data / satellite imagery</span><span data-l="fr">data engineering / Python / open data / imagerie satellite</span></span></p>
+        </div>
+        <details>
+          <summary><span class="open"><span data-l="en">+ Show technical details</span><span data-l="fr">+ Voir les détails techniques</span></span><span class="close"><span data-l="en">− Hide technical details</span><span data-l="fr">− Masquer les détails techniques</span></span></summary>
+          <div class="details">
+            <div><h4><span data-l="en">methods</span><span data-l="fr">méthodes</span></h4>
+              <p data-l="en">Address parsing and normalisation with pandas against a government open‑data API; satellite image processing in Google Earth Engine, mapped with Folium.</p>
+              <p data-l="fr">Analyse et normalisation d’adresses avec pandas via une API open data du gouvernement ; traitement d’images satellites dans Google Earth Engine, cartographiées avec Folium.</p></div>
+            <div><h4><span data-l="en">tools</span><span data-l="fr">outils</span></h4><p class="stack">Python / pandas / Google Earth Engine / Folium</p></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 03 Aryam -->
+      <article class="sheet project small" aria-labelledby="p3">
+        <span class="tape r" aria-hidden="true"></span>
+        <svg class="sketch pen" aria-hidden="true" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 38 L70 15 M22 38 L74 56 M22 38 L48 40 M48 40 L70 15 M48 40 L74 56"/><circle cx="22" cy="38" r="8" fill="url(#h1)"/><circle cx="70" cy="15" r="7" fill="url(#h1)"/><circle cx="74" cy="56" r="7" fill="url(#h1)"/><circle class="f-paper" cx="48" cy="40" r="5"/></g></svg>
+        <div class="project-body">
+          <div class="project-text">
+            <p class="project-meta"><span data-l="en">Experiment 03, Apr–Sep 2025<br>Aryam Adaptive &amp; Regenerative Solutions, Paris (remote)</span><span data-l="fr">Expérience 03, avr.–sept. 2025<br>Aryam Adaptive &amp; Regenerative Solutions, Paris (à distance)</span></p>
+            <h3 id="p3"><span data-l="en">An AI assistant for farmers and agronomists</span><span data-l="fr">Un assistant IA pour agriculteurs et agronomes</span></h3>
+          </div>
+          <dl class="qa" data-l="en">
+            <dt>the question</dt><dd>How can farmers and agronomists get reliable answers from a large body of agro‑ecological data?</dd>
+            <dt>what I did</dt><dd>Automated the extraction, cleaning and storage of the data, made it searchable by meaning, and built a multi‑agent chatbot on top.</dd>
+            <dt>what it delivered</dt><dd>A RAG assistant deployed on Microsoft Azure, plus a computer‑vision module that classifies plants.</dd>
+          </dl>
+          <dl class="qa" data-l="fr">
+            <dt>la question</dt><dd>Comment donner aux agriculteurs et aux agronomes des réponses fiables à partir d’une grande masse de données agroécologiques ?</dd>
+            <dt>ce que j’ai fait</dt><dd>Automatisé l’extraction, le nettoyage et le stockage des données, rendu possible leur recherche par le sens, et construit un chatbot multi‑agents par‑dessus.</dd>
+            <dt>ce que ça a donné</dt><dd>Un assistant RAG déployé sur Microsoft Azure, et un module de vision par ordinateur qui classe les plantes.</dd>
+          </dl>
+          <p class="keywords"><span class="hand"><span data-l="en">keywords</span><span data-l="fr">mots‑clés</span></span><span class="k"><span data-l="en">LLMs / RAG / computer vision / Azure</span><span data-l="fr">LLM / RAG / vision par ordinateur / Azure</span></span></p>
+        </div>
+        <details>
+          <summary><span class="open"><span data-l="en">+ Show technical details</span><span data-l="fr">+ Voir les détails techniques</span></span><span class="close"><span data-l="en">− Hide technical details</span><span data-l="fr">− Masquer les détails techniques</span></span></summary>
+          <div class="details">
+            <div><h4><span data-l="en">methods</span><span data-l="fr">méthodes</span></h4>
+              <p data-l="en">Multi‑agent retrieval‑augmented generation (LangChain, LangGraph); vector embeddings for semantic search; image classification for plant recognition.</p>
+              <p data-l="fr">Génération augmentée par récupération multi‑agents (LangChain, LangGraph) ; vectorisation pour la recherche sémantique ; classification d’images pour reconnaître les plantes.</p></div>
+            <div><h4><span data-l="en">tools</span><span data-l="fr">outils</span></h4><p class="stack">Python / LangChain / LangGraph / Microsoft Azure</p></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 04 SlideAI -->
+      <article class="sheet project small" aria-labelledby="p4">
+        <span class="tape r" aria-hidden="true"></span>
+        <svg class="sketch pen" aria-hidden="true" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 36 L88 10 L62 62 L48 44 Z" fill="url(#h1)"/><path d="M48 44 L88 10"/><path d="M8 62 C 18 56 28 64 38 56" stroke-dasharray="3 5"/></g></svg>
+        <div class="project-body">
+          <div class="project-text">
+            <p class="project-meta"><span data-l="en">Experiment 04, Nov 2025 – Sep 2026<br>Founder, side project</span><span data-l="fr">Expérience 04, nov. 2025 – sept. 2026<br>Fondateur, projet parallèle</span></p>
+            <h3 id="p4"><span data-l="en">SlideAI: from an idea to paying customers</span><span data-l="fr">SlideAI : d’une idée aux premiers clients</span></h3>
+          </div>
+          <dl class="qa" data-l="en">
+            <dt>the question</dt><dd>Can AI turn a brief into a ready‑to‑use business presentation?</dd>
+            <dt>what I did</dt><dd>Designed, built and launched the whole product end to end as founder.</dd>
+            <dt>what it delivered</dt><dd><span class="hl">170 sign‑ups</span> and first organic sales within a month of launch.</dd>
+          </dl>
+          <dl class="qa" data-l="fr">
+            <dt>la question</dt><dd>L’IA peut‑elle transformer un brief en présentation professionnelle prête à l’emploi ?</dd>
+            <dt>ce que j’ai fait</dt><dd>Conçu, développé et lancé tout le produit de bout en bout, en tant que fondateur.</dd>
+            <dt>ce que ça a donné</dt><dd><span class="hl">170 inscrits</span> et premières ventes organiques en moins d’un mois après le lancement.</dd>
+          </dl>
+          <p class="keywords"><span class="hand"><span data-l="en">keywords</span><span data-l="fr">mots‑clés</span></span><span class="k"><span data-l="en">product / full‑stack / AI / B2B SaaS</span><span data-l="fr">produit / full‑stack / IA / SaaS B2B</span></span></p>
+        </div>
+        <details>
+          <summary><span class="open"><span data-l="en">+ Show technical details</span><span data-l="fr">+ Voir les détails techniques</span></span><span class="close"><span data-l="en">− Hide technical details</span><span data-l="fr">− Masquer les détails techniques</span></span></summary>
+          <div class="details">
+            <div><h4><span data-l="en">tools</span><span data-l="fr">outils</span></h4><p class="stack">Next.js / TypeScript / Supabase / Stripe</p></div>
+          </div>
+        </details>
+      </article>
+
+      <!-- 05 Dashboard -->
+      <article class="sheet project small" aria-labelledby="p5">
+        <span class="tape l" aria-hidden="true"></span>
+        <svg class="sketch pen" aria-hidden="true" viewBox="0 0 96 72"><g filter="url(#ink)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18 L34 10 L62 18 L88 10 V56 L62 64 L34 56 L8 64 Z"/><path d="M34 10 V56 M62 18 V64"/><path d="M48 46 C 40 34 40 26 48 24 C 56 26 56 34 48 46 Z" fill="url(#h1)"/></g></svg>
+        <div class="project-body">
+          <div class="project-text">
+            <p class="project-meta"><span data-l="en">Experiment 05<br>Personal project</span><span data-l="fr">Expérience 05<br>Projet personnel</span></p>
+            <h3 id="p5"><span data-l="en">Does air pollution track asthma?</span><span data-l="fr">La pollution de l’air suit‑elle l’asthme ?</span></h3>
+          </div>
+          <dl class="qa" data-l="en">
+            <dt>the question</dt><dd>Is fine‑particle pollution (PM2.5) related to asthma across territories?</dd>
+            <dt>what I did</dt><dd>Built a web app that crosses both datasets, with a correlation analysis in Python and interactive maps.</dd>
+          </dl>
+          <dl class="qa" data-l="fr">
+            <dt>la question</dt><dd>La pollution aux particules fines (PM2.5) est‑elle liée à l’asthme selon les territoires ?</dd>
+            <dt>ce que j’ai fait</dt><dd>Développé une application web qui croise les deux jeux de données, avec une analyse de corrélation en Python et des cartes interactives.</dd>
+          </dl>
+          <p class="keywords"><span class="hand"><span data-l="en">keywords</span><span data-l="fr">mots‑clés</span></span><span class="k"><span data-l="en">geo‑epidemiology / Python / data visualisation</span><span data-l="fr">géo‑épidémiologie / Python / data visualisation</span></span></p>
+        </div>
+        <details>
+          <summary><span class="open"><span data-l="en">+ Show technical details</span><span data-l="fr">+ Voir les détails techniques</span></span><span class="close"><span data-l="en">− Hide technical details</span><span data-l="fr">− Masquer les détails techniques</span></span></summary>
+          <div class="details">
+            <div><h4><span data-l="en">tools</span><span data-l="fr">outils</span></h4><p class="stack">Python / React / TypeScript / Leaflet</p></div>
+          </div>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="section" aria-labelledby="skills-title">
+  <svg class="decor" aria-hidden="true" viewBox="0 0 300 260" style="top:40px; right:-90px; width:280px; opacity:.55">
+    <g filter="url(#ink)" stroke="currentColor" stroke-width="1.6">
+      <circle cx="140" cy="100" r="54" fill="url(#h1)"/><circle class="f-paper" cx="132" cy="94" r="13"/>
+      <circle cx="70" cy="170" r="30" fill="url(#h3)"/><circle class="f-paper" cx="66" cy="166" r="7"/>
+      <circle cx="190" cy="190" r="36" fill="url(#h1)"/><circle class="f-paper" cx="184" cy="184" r="9"/>
+      <circle cx="60" cy="70" r="12" fill="none"/><circle cx="240" cy="120" r="8" fill="none"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="skills-title"><span data-l="en">Skills</span><span data-l="fr">Compétences</span></h2>
+      <p class="hand"><span data-l="en">where my three fields meet</span><span data-l="fr">là où mes trois domaines se rencontrent</span></p>
+    </div>
+
+    <figure class="venn">
+      <svg role="img" aria-label="Venn diagram: biostatistics, computing science and biomedical expertise overlap; Health Data Scientist in the middle" viewBox="0 0 560 470">
+        <g class="inkc" filter="url(#ink)" stroke="currentColor" stroke-width="2">
+          <circle cx="200" cy="170" r="130" fill="url(#h1)" fill-opacity=".45"/>
+          <circle cx="360" cy="170" r="130" fill="url(#h3)" fill-opacity=".45"/>
+          <circle cx="280" cy="296" r="130" fill="url(#h4)" fill-opacity=".35"/>
+        </g>
+        <ellipse class="f-paper pen" cx="280" cy="216" rx="78" ry="34" stroke="currentColor" stroke-width="1.6" filter="url(#ink)"/>
+        <g class="pen" fill="currentColor" font-family="Caveat, cursive" font-size="25" font-weight="700" text-anchor="middle">
+          <text x="280" y="212">Health Data</text><text x="280" y="236">Scientist</text>
+        </g>
+        <g class="inkc halo" fill="currentColor" font-family="IBM Plex Sans, sans-serif" font-weight="500" stroke-width="5" stroke-linejoin="round" paint-order="stroke" text-anchor="middle">
+          <text x="280" y="120" font-size="15">Machine</text><text x="280" y="139" font-size="15">learning</text>
+          <text x="212" y="264" font-size="14" data-l="en">Epidemiology</text><text x="212" y="264" font-size="14" data-l="fr">Épidémiologie</text>
+          <text x="212" y="282" font-size="14" data-l="en">Clinical research</text><text x="212" y="282" font-size="14" data-l="fr">Recherche clinique</text>
+          <text x="348" y="264" font-size="14" data-l="en">NLP &amp; LLMs</text><text x="348" y="264" font-size="14" data-l="fr">NLP &amp; LLM</text>
+          <text x="348" y="282" font-size="14" data-l="en">Image recognition</text><text x="348" y="282" font-size="14" data-l="fr">Reconnaissance d’images</text>
+        </g>
+        <g class="inkc" fill="currentColor" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="600" text-anchor="middle">
+          <text x="92" y="36" data-l="en">Biostatistics</text><text x="92" y="36" data-l="fr">Biostatistiques</text>
+          <text x="470" y="26" data-l="en">Computing</text><text x="470" y="52" data-l="en">science</text>
+          <text x="470" y="40" data-l="fr">Informatique</text>
+          <text x="280" y="458" data-l="en">Biomedical expertise</text><text x="280" y="458" data-l="fr">Expertise biomédicale</text>
+        </g>
+      </svg>
+    </figure>
+
+    <svg class="squiggle pen" aria-hidden="true" viewBox="0 0 1000 14" preserveAspectRatio="none"><path filter="url(#ink)" d="M2 7 C 120 2, 230 12, 360 7 S 600 2, 720 8 S 920 11, 998 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".6"/></svg>
+
+    <div class="skill-groups">
+      <section>
+        <h3><span data-l="en">Statistics</span><span data-l="fr">Statistiques</span></h3>
+        <ul data-l="en"><li>Survival analysis (Kaplan–Meier, Cox)</li><li>Generalised linear and two‑part models</li><li>Non‑parametric tests</li></ul>
+        <ul data-l="fr"><li>Analyse de survie (Kaplan–Meier, Cox)</li><li>Modèles linéaires généralisés et modèles en deux parties</li><li>Tests non paramétriques</li></ul>
+      </section>
+      <section>
+        <h3><span data-l="en">Machine learning &amp; AI</span><span data-l="fr">Machine learning &amp; IA</span></h3>
+        <ul data-l="en"><li>Machine learning, computer vision</li><li>LLMs, RAG and multi‑agent systems (LangChain, LangGraph)</li><li>Vector databases (Pinecone)</li></ul>
+        <ul data-l="fr"><li>Machine learning, vision par ordinateur</li><li>LLM, RAG et systèmes multi‑agents (LangChain, LangGraph)</li><li>Bases vectorielles (Pinecone)</li></ul>
+      </section>
+      <section>
+        <h3><span data-l="en">Health data</span><span data-l="fr">Données de santé</span></h3>
+        <ul data-l="en"><li>Real‑world data, PROMs</li><li>ICD‑11 coding</li><li>SNDS (French national health data system), GDPR</li></ul>
+        <ul data-l="fr"><li>Données de vie réelle, PROMs</li><li>Codage CIM‑11</li><li>SNDS, RGPD</li></ul>
+      </section>
+      <section>
+        <h3><span data-l="en">Programming</span><span data-l="fr">Programmation</span></h3>
+        <p class="mono">R (ggplot2) / Python (pandas, NumPy) / SQL</p>
+      </section>
+      <section>
+        <h3><span data-l="en">Tools &amp; cloud</span><span data-l="fr">Outils &amp; cloud</span></h3>
+        <p class="mono">Git / Docker / Linux / Microsoft Azure</p>
+      </section>
+      <section>
+        <h3><span data-l="en">Web development</span><span data-l="fr">Développement web</span></h3>
+        <p class="mono">TypeScript / React / Next.js / Node.js</p>
+      </section>
+    </div>
+
+    <div class="extras">
+      <div>
+        <p class="hand"><span data-l="en">currently studying →</span><span data-l="fr">en cours d’apprentissage →</span></p>
+        <p data-l="en">Causal inference (DAGs, IPW, target trial emulation), pharmacoepidemiology, statistical genetics (GWAS, Mendelian randomisation), predictive modelling.</p>
+        <p data-l="fr">Inférence causale (DAG, IPW, émulation d’essais cibles), pharmaco‑épidémiologie, génétique statistique (GWAS, randomisation mendélienne), modélisation prédictive.</p>
+      </div>
+      <div>
+        <p class="hand"><span data-l="en">languages →</span><span data-l="fr">langues →</span></p>
+        <p data-l="en">French, native. English, B2 (professional). Spanish, A2.</p>
+        <p data-l="fr">Français, langue maternelle. Anglais, B2 (professionnel). Espagnol, A2.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PATH ================= -->
+<section id="path" class="section" aria-labelledby="path-title">
+  <svg class="decor" aria-hidden="true" viewBox="0 0 320 280" style="bottom:-60px; right:-80px; width:320px; opacity:.6">
+    <g filter="url(#ink)" stroke="currentColor" stroke-width="1.6">
+      <circle cx="150" cy="140" r="62" fill="url(#h1)"/><circle class="f-paper" cx="140" cy="132" r="15"/>
+      <circle cx="74" cy="80" r="32" fill="url(#h2)"/><circle class="f-paper" cx="70" cy="76" r="8"/>
+      <circle cx="236" cy="70" r="26" fill="url(#h2)"/>
+      <circle cx="80" cy="220" r="14" fill="none"/><circle cx="250" cy="200" r="9" fill="none"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="path-title"><span data-l="en">Path</span><span data-l="fr">Parcours</span></h2>
+      <p class="hand"><span data-l="en">economics → data → health</span><span data-l="fr">économie → data → santé</span></p>
+      <p class="legend">
+        <span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" class="pen"><circle cx="7" cy="7" r="5" fill="currentColor"/></svg><span data-l="en">Work</span><span data-l="fr">Pro</span></span>
+        <span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" class="pen"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span data-l="en">Study</span><span data-l="fr">Études</span></span>
+      </p>
+    </div>
+
+    <div class="timeline">
+      <svg class="line" aria-hidden="true" viewBox="0 0 10 1000" preserveAspectRatio="none"><path filter="url(#ink)" d="M5 0 C 3 200, 7 400, 5 600 S 4 900, 5 1000" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>
+      <ol>
+        <li>
+          <p class="next-date"><span data-l="en">next →<br><span>Feb 2027</span></span><span data-l="fr">ensuite →<br><span>févr. 2027</span></span></p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle class="f-paper" cx="14" cy="14" r="9" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/></svg>
+          <div class="what">
+            <h3><span data-l="en">6‑month end‑of‑studies internship</span><span data-l="fr">Stage de fin d’études de 6 mois</span></h3>
+            <p class="invite"><span data-l="en">Health Data Scientist, maybe in your team?</span><span data-l="fr">Health Data Scientist, peut‑être dans votre équipe ?</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="date"><span data-l="en">2026 – 2027</span><span data-l="fr">2026 – 2027</span></p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle class="f-paper" cx="14" cy="14" r="8" stroke="currentColor" stroke-width="2" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">MSc Public Health, Health Data Science track (M2)</span><span data-l="fr">Master 2 Santé publique, parcours Science des données de santé</span></h3>
+            <p class="org">Université Paris‑Saclay</p>
+            <p class="desc" data-l="en">Survival analysis and predictive modelling, machine learning, causal inference, pharmacoepidemiology, statistical genetics.</p>
+            <p class="desc" data-l="fr">Analyse de survie et modélisation prédictive, machine learning, inférence causale, pharmaco‑épidémiologie, génétique statistique.</p>
+          </div>
+        </li>
+        <li>
+          <p class="date"><span data-l="en">Mar – Aug 2026</span><span data-l="fr">mars – août 2026</span></p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle cx="14" cy="14" r="8" fill="currentColor" stroke="currentColor" stroke-width="1.6" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">Biostatistician intern</span><span data-l="fr">Stagiaire biostatisticien</span></h3>
+            <p class="org"><span data-l="en">Inserm CRESS (UMR 1153), Hôtel‑Dieu Hospital, Paris</span><span data-l="fr">Inserm CRESS (UMR 1153), Hôpital Hôtel‑Dieu, Paris</span></p>
+            <p class="desc" data-l="en">Real‑world data from 1,620 neurology patients. Built the whole R analysis pipeline and drafted the methods and results sections of a manuscript.</p>
+            <p class="desc" data-l="fr">Données de vie réelle de 1 620 patients en neurologie. Construction de tout le pipeline d’analyse en R et rédaction des parties méthodes et résultats d’un article.</p>
+          </div>
+        </li>
+        <li>
+          <p class="date"><span data-l="en">Nov 2025 – Sep 2026</span><span data-l="fr">nov. 2025 – sept. 2026</span></p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle cx="14" cy="14" r="8" fill="currentColor" stroke="currentColor" stroke-width="1.6" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">Founder, SlideAI</span><span data-l="fr">Fondateur, SlideAI</span></h3>
+            <p class="org"><span data-l="en">Side project</span><span data-l="fr">Projet parallèle</span></p>
+            <p class="desc" data-l="en">AI presentation SaaS designed, built and launched end to end (Next.js, TypeScript, Supabase, Stripe): 170 sign‑ups and first sales in its first month.</p>
+            <p class="desc" data-l="fr">SaaS de présentations par IA conçu, développé et lancé de bout en bout (Next.js, TypeScript, Supabase, Stripe) : 170 inscrits et premières ventes dès le premier mois.</p>
+          </div>
+        </li>
+        <li>
+          <p class="date">2025 – 2026</p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle class="f-paper" cx="14" cy="14" r="8" stroke="currentColor" stroke-width="2" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">MSc Public Health (M1)</span><span data-l="fr">Master 1 Santé publique</span></h3>
+            <p class="org">Université Paris‑Saclay</p>
+            <p class="desc" data-l="en">Biostatistics in R, epidemiology, clinical research, health economics, SNDS.</p>
+            <p class="desc" data-l="fr">Biostatistiques sous R, épidémiologie, recherche clinique, économie de la santé, SNDS.</p>
+          </div>
+        </li>
+        <li>
+          <p class="date"><span data-l="en">Apr – Sep 2025</span><span data-l="fr">avr. – sept. 2025</span></p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle cx="14" cy="14" r="8" fill="currentColor" stroke="currentColor" stroke-width="1.6" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">Junior data scientist intern</span><span data-l="fr">Data scientist junior (stage)</span></h3>
+            <p class="org"><span data-l="en">Aryam Adaptive &amp; Regenerative Solutions, Paris (remote)</span><span data-l="fr">Aryam Adaptive &amp; Regenerative Solutions, Paris (à distance)</span></p>
+            <p class="desc" data-l="en">Data pipelines with semantic search, a multi‑agent RAG chatbot deployed on Azure for farmers and agronomists, and a computer‑vision module for plant classification.</p>
+            <p class="desc" data-l="fr">Pipelines de données avec recherche sémantique, chatbot RAG multi‑agents déployé sur Azure pour agriculteurs et agronomes, et module de vision par ordinateur pour classer les plantes.</p>
+          </div>
+        </li>
+        <li>
+          <p class="date"><span data-l="en">Jun – Sep 2024</span><span data-l="fr">juin – sept. 2024</span></p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle cx="14" cy="14" r="8" fill="currentColor" stroke="currentColor" stroke-width="1.6" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">Junior data engineer intern</span><span data-l="fr">Data engineer junior (stage)</span></h3>
+            <p class="org">Forvis Mazars, Paris</p>
+            <p class="desc" data-l="en">Python solution to normalise an insurer’s client addresses with government open‑data APIs; Sentinel‑2 satellite imagery to track farmland regeneration.</p>
+            <p class="desc" data-l="fr">Solution Python de normalisation des adresses clients d’un assureur via les API open data du gouvernement ; images satellites Sentinel‑2 pour suivre la régénération de parcelles agricoles.</p>
+          </div>
+        </li>
+        <li>
+          <p class="date">2022 – 2025</p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle class="f-paper" cx="14" cy="14" r="8" stroke="currentColor" stroke-width="2" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">BSc Economics</span><span data-l="fr">Licence d’économie</span></h3>
+            <p class="org">Université Paris 1 Panthéon‑Sorbonne</p>
+            <p class="desc" data-l="en">Econometrics, statistics, mathematics.</p>
+            <p class="desc" data-l="fr">Économétrie, statistiques, mathématiques.</p>
+          </div>
+        </li>
+        <li>
+          <p class="date">2022 – 2024</p>
+          <svg class="dot" aria-hidden="true" viewBox="0 0 28 28"><circle class="f-paper" cx="14" cy="14" r="8" stroke="currentColor" stroke-width="2" filter="url(#ink)"/></svg>
+          <div class="what">
+            <h3><span data-l="en">Web developer training</span><span data-l="fr">Formation Développeur web</span></h3>
+            <p class="org">OpenClassrooms</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section" aria-labelledby="contact-title" style="padding-bottom:0">
+  <svg class="decor" aria-hidden="true" viewBox="0 0 300 240" style="top:-50px; left:-100px; width:300px; opacity:.55">
+    <g filter="url(#ink)" stroke="currentColor" stroke-width="1.6">
+      <circle cx="130" cy="100" r="56" fill="url(#h1)"/><circle class="f-paper" cx="138" cy="94" r="13"/>
+      <circle cx="220" cy="150" r="28" fill="url(#h2)"/><circle class="f-paper" cx="224" cy="146" r="7"/>
+      <circle cx="70" cy="190" r="20" fill="url(#h2)"/><circle cx="240" cy="60" r="9" fill="none"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact-text">
+        <h2 id="contact-title"><span data-l="en">Let’s talk.</span><span data-l="fr">Parlons‑en.</span></h2>
+        <p class="lede" data-l="en">I’m looking for a 6‑month end‑of‑studies internship in health data science, from February 2027, in Paris, Switzerland or Luxembourg.</p>
+        <p class="lede" data-l="fr">Je cherche un stage de fin d’études de 6 mois en science des données de santé, à partir de février 2027, à Paris, en Suisse ou au Luxembourg.</p>
+        <div style="display:flex; flex-direction:column; gap:4px; padding-top:8px">
+          <p class="hand" style="margin:0; font-size:24px"><span data-l="en">the quickest way →</span><span data-l="fr">le plus simple →</span></p>
+          <a class="mail" href="mailto:noe.tehraoui1@gmail.com">noe.tehraoui1@gmail.com</a>
+        </div>
+        <ul class="links">
+          <li><a href="https://linkedin.com/in/noe-chevalier-tehraoui" target="_blank" rel="noopener">LinkedIn <span class="hand" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://github.com/Nouh2" target="_blank" rel="noopener">GitHub <span class="hand" aria-hidden="true">↗</span></a></li>
+          <li data-l="en"><a href="cv-noe-chevalier-tehraoui-en.pdf" download>Download CV (PDF) <span class="hand" aria-hidden="true">↓</span></a></li>
+          <li data-l="fr"><a href="cv-noe-chevalier-tehraoui-fr.pdf" download>Télécharger le CV (PDF) <span class="hand" aria-hidden="true">↓</span></a></li>
+        </ul>
+      </div>
+      <figure class="contact-art">
+        <svg aria-hidden="true" viewBox="0 0 380 260">
+          <g filter="url(#ink)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path class="pen" d="M14 236 C 60 220, 70 170, 120 176 S 190 200, 210 150" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 7"/>
+            <path class="inkc" d="M200 120 L366 30 L318 214 L276 160 Z" fill="url(#h1)" stroke="currentColor" stroke-width="2.2"/>
+            <path class="inkc" d="M276 160 L366 30" stroke="currentColor" stroke-width="2"/>
+            <path class="inkc" d="M276 160 L262 206 L296 182" stroke="currentColor" stroke-width="2"/>
+          </g>
+        </svg>
+      </figure>
+    </div>
+    <footer class="site-footer">
+      <p>© 2026 Noe Chevalier‑Tehraoui, Paris</p>
+      <a href="#top"><span data-l="en">back to the top ↑</span><span data-l="fr">retour en haut ↑</span></a>
+    </footer>
+  </div>
+</section>
+  </main>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('[data-set-lang]');
+  function apply(lang){
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    for (var i = 0; i < buttons.length; i++){
+      buttons[i].setAttribute('aria-pressed', buttons[i].getAttribute('data-set-lang') === lang ? 'true' : 'false');
+    }
+    document.title = lang === 'fr' ? 'Noe Chevalier-Tehraoui · Health Data Scientist (FR)' : 'Noe Chevalier-Tehraoui · Health Data Scientist';
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  apply(saved === 'fr' ? 'fr' : 'en');
+  for (var i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', function(){
+      var lang = this.getAttribute('data-set-lang');
+      apply(lang);
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    });
+  }
+})();
+</script>
+</body>
+</html>
